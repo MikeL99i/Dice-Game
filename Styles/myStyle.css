@@ -14,7 +14,16 @@ body {
 
 .container {
   margin: 100px auto;
+  padding: 50px;
   max-width: 540px;
   height: 540px;
   border: 1px solid black;
 }
+
+
+.players {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 40px;
+}
+
