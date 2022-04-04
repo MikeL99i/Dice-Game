@@ -18,6 +18,7 @@ body {
   max-width: 540px;
   height: 540px;
   border: 1px solid black;
+  background: rgb(210, 225, 235);
 }
 
 
@@ -27,3 +28,24 @@ body {
   margin: 0 40px;
 }
 
+.dice {
+  background: #ffd3b6;
+  font-size: 80px;
+  border-radius: 10px;
+  margin: 20px auto;
+}
+
+button {
+    color: #fff;
+    padding: 20px 30px;
+    font-size: 20px;
+    margin: 50px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #00c778;
+}
+
+#resetBtn {
+  display: none;
+}
