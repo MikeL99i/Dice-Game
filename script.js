@@ -19,13 +19,15 @@ let p1Dice = 0;
 let p2Dice = 0;
 let playerTurn = 0; // Flag for tracking player turn =>  0 = Player 1 turn; 1 = Player 2 Turn
 
-rollBtn.addEventListener("click", ClickRoll)
+rollBtn.addEventListener("click", ClickRoll);
+resetBtn.addEventListener("click", reset);
 
-
+// this function invoke on rollBtn
 function ClickRoll() {
     RollDice();
     if(p1Score >= 20 || p2Score >= 20) {
         windCondition = true;
+        activateResetBtn();
     }
     if(playerTurn === 0) {
         if(windCondition === false)
@@ -40,10 +42,22 @@ function ClickRoll() {
     }
 }
 
+// hide rollBtn and display resetBtn
+function activateResetBtn() {
+    rollBtn.style.display = "none";
+    resetBtn.style.display = "block"; 
+}
+
+function reset() {
+
+}
+
+// display the right message
 function DisplayMessage(theMessage) {
     message.innerHTML = theMessage;
 }
 
+// roll a dice
 function RollDice() {
     if(playerTurn === 0) {
         p1Dice = RandomDice();
