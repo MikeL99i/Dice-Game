@@ -78,16 +78,16 @@ function RollDice() {
         p1Dice = RandomDice();
         p1Score += p1Dice;
         DisplayScoreAndDice(p1Dice, p1Score, playerTurn);
+        SwapActive(p1DiceDisplay, p2DiceDisplay);
         playerTurn = 1;
     }else {
         p2Dice = RandomDice();
         p2Score += p2Dice;
         DisplayScoreAndDice(p2Dice, p2Score, playerTurn);
+        SwapActive(p2DiceDisplay, p1DiceDisplay);
         playerTurn = 0;
     }
-    if(windCondition === true) {
 
-    }
 }
 
 // Dice function retrun random number between 1 to 6
@@ -103,4 +103,9 @@ function DisplayScoreAndDice(dice, score, playerTurn) {
         p2Scoreboard.innerHTML = score;
         p2DiceDisplay.innerHTML = dice;
     }
+}
+
+function SwapActive(pRemove, pActive) {
+    pRemove.classList.remove("active");
+    pActive.classList.add("active");
 }
