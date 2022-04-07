@@ -10,7 +10,7 @@ const message = document.getElementById("message");
 const p1Message = "Player 1 Turn";
 const p2Message = "Player 2 Turn";
 const p1Victory = "Player 1 Won 🎉🎉🎉";
-const p2Victory = "Player2 Won 🎉🎉🎉";
+const p2Victory = "Player 2 Won 🎉🎉🎉";
 
 let windCondition = false;
 let p1Score = 0;
@@ -20,14 +20,15 @@ let p2Dice = 0;
 let playerTurn = 0; // Flag for tracking player turn =>  0 = Player 1 turn; 1 = Player 2 Turn
 
 rollBtn.addEventListener("click", ClickRoll);
-resetBtn.addEventListener("click", reset);
+resetBtn.addEventListener("click", Reset);
+
 
 // this function invoke on rollBtn
 function ClickRoll() {
     RollDice();
     if(p1Score >= 20 || p2Score >= 20) {
         windCondition = true;
-        activateResetBtn();
+        ActivateResetBtn();
     }
     if(playerTurn === 0) {
         if(windCondition === false)
@@ -43,13 +44,27 @@ function ClickRoll() {
 }
 
 // hide rollBtn and display resetBtn
-function activateResetBtn() {
+function ActivateResetBtn() {
     rollBtn.style.display = "none";
-    resetBtn.style.display = "block"; 
+    resetBtn.style.display = "inline-block"; 
 }
 
-function reset() {
+// hide reset btn activate roll btn
+function ActivateRollBtn() {
+    resetBtn.style.display = "none";
+    rollBtn.style.display = "inline-block";
+}
 
+// invoke when resetbtn clicked reset score -> another round
+function Reset() {
+    windCondition = false;
+    p1Score = 0;
+    p2Score = 0;
+    playerTurn = 0;
+    DisplayMessage(p1Message);
+    DisplayScoreAndDice("-", p1Score, 0);
+    DisplayScoreAndDice("-", p2Score, 1);
+    ActivateRollBtn();
 }
 
 // display the right message
